@@ -8,7 +8,7 @@
 #include <iostream>
 using namespace std;
 
-struct sportsmen {
+struct sportsmen { // Молдавский код!
 	char comandName[20];
 	char fio[20];
 	int age;
@@ -75,7 +75,11 @@ void readFromFile(HANDLE file2) {
 	cout << "From file:" << endl;
 	sportsmen sp;
 
-	while (ReadFile(file2, &sp.comandName, sizeof(sp.comandName), &n, NULL) && n != 0) {		ReadFile(file2, &sp.fio, sizeof(sp.fio), &n, NULL);		ReadFile(file2, &sp.age, sizeof(sp.age), &n, NULL);		sp.printConsole();	}
+	while (ReadFile(file2, &sp.comandName, sizeof(sp.comandName), &n, NULL) && n != 0) {
+		ReadFile(file2, &sp.fio, sizeof(sp.fio), &n, NULL);
+		ReadFile(file2, &sp.age, sizeof(sp.age), &n, NULL);
+		sp.printConsole();
+	}
 }
 
 	
@@ -83,11 +87,23 @@ int main()
 {
 	sportsmen mas[10] = { {"Star", "Sokolov Vasiliy", 17}, {"Sky", "Ivanov Petr", 19}, {"Sun", "Sidorov Ivan", 15}, {"Space", "Kozlov Maksim", 16} };
 
-	HANDLE file = createFile();	writeToFile(mas, file);	CloseHandle(file);	HANDLE file2 = openFileForReading();	   	
-	readFromFile(file2);	CloseHandle(file2);
+	HANDLE file = createFile();
 
-	
+	writeToFile(mas, file);
+	CloseHandle(file);
+
+	HANDLE file2 = openFileForReading();
+	   	
+	readFromFile(file2);
+
+	CloseHandle(file2);
+
+
+	
+
 
 }
 
-
+
+
+
